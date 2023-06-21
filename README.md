@@ -8,4 +8,4 @@
 
 - On the admin side, the administrator can perform the CRUD functionalities for the dishes, can consult the list of customers and orders.
 
-- Technologies: Html/CSS/PHP, you can even use Bootstrap for the CSS part.
+- Technologies: `Html/CSS/PHP`, we can even use Bootstrap for the CSS part.
