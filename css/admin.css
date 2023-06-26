@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #edf2f4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu{
+    text-align: center;
+    padding: .3cm;
+    
+}
+
+.menu{
+    border-bottom: 2px solid #9d0208
+}
+
+.menu ul{
+    list-style-type: none;
+}
+
+.menu ul li a{
+    color: #9d0208;
+    padding: .7%;
+    text-decoration: none;
+    display: inline;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.menu ul li a:hover{
+    color: #ffba08;
+}
+
+
+.cadder
+{
+    padding: .5cm;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* main */
+.main-content{
+    background-color: whitesmoke;
+    padding: 3cm;
+}
+
+.col-5{
+    width: 18%;
+    background: #ffb908c5;
+    color: black;
+    margin: 1%;
+    padding: 2%;
+    float: left;
+}
+
+.fix{
+    float: none;
+    clear: both;
+}
+
+/* footer */
+.footer{
+    text-align: center;
+}
+
+.social ul{
+    text-align: center;
+    list-style-type: none;
+}
+.social ul li{
+    display: inline;
+    padding: 1%;
+}
+.social{
+    padding: 3% 0;
+}
+
+
+
+
