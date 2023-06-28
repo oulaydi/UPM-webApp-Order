@@ -3,32 +3,32 @@
     <!-- main starts -->
     <div class="main-content">
         <div class="cadder">
-            <h1>DASHBOARD</h1>
+            <h1>TABLEAU DE BORD</h1>
 
             <div class="col-5">
                 <h1>5</h1>
                 <br/>
-                Categories
+                Catégories
             </div>
             <div class="col-5">
                 <h1>5</h1>
                 <br/>
-                Categories
+                Catégories
             </div>
             <div class="col-5">
                 <h1>5</h1>
                 <br/>
-                Categories
+                Catégories
             </div>
             <div class="col-5">
                 <h1>5</h1>
                 <br/>
-                Categories
+                Catégories
             </div>
             <div class="col-5">
                 <h1>5</h1>
                 <br/>
-                Categories
+                Catégories
             </div>
             <div class="fix"></div>
         </div>

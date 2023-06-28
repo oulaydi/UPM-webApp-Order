@@ -9,6 +9,12 @@
     box-sizing: border-box;
 }
 
+::selection
+{
+    color: white;
+    background-color: #9d0208;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -73,6 +79,45 @@ body {
     float: none;
     clear: both;
 }
+
+.tbl-full{
+    width: 100%;
+    padding-top: 1%;
+}    
+
+table tr th{
+    padding: 1%;
+    text-align: left;
+    border-bottom: 2px solid #9d0208;
+}
+
+table tr td {
+    padding: 1%;  
+}
+
+.add-btn{
+    background-color: #9d0208;
+    padding: 1%;
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.add-btn:hover{
+    color: white;
+    background-color: #ffba08;
+    
+}
+
+
+
+
+
+
+
+
 
 /* footer */
 .footer{

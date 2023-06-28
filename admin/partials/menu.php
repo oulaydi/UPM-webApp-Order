@@ -15,9 +15,9 @@
                 <li>
                     <a href="admin.php">Accueil</a>
                     <a href="manage-admin.php">Admin</a>
-                    <a href="manage-cate.php">Categories</a>
-                    <a href="manage-food.php">Foods</a>
-                    <a href="manage-order.php">Order</a>
+                    <a href="manage-cate.php">Catégories</a>
+                    <a href="manage-food.php">repas</a>
+                    <a href="manage-order.php">commandes</a>
                 </li>
             </ul>
         </div>
