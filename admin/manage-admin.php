@@ -43,45 +43,79 @@
         <div class="cadder">
             <h1>Admin</h1>
 
+            <br>
+            
+            <?php
+            
+                if(isset($_SESSION['add'])){
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
+                }
+
+            ?>
+
             <br/><br/>
             <br/>
-            <a href="#" class="add-btn">Ajouter</a>
+            <a href="add-admin.php" class="add-btn">Ajouter</a>
             <br/><br/>
             <br/>
 
             <table class="tbl-full">
                 <tr>
-                    <th>CNE</th>
+                    <th>N°</th>
                     <th>Nom et Prenom</th>
                     <th>Nom d'utilisateur</th>
                     <th>Action</th>
                 </tr>
 
-                <tr>
-                    <td>EE667357</td>
-                    <td>Oussama Oulaydi</td>
-                    <td>oulaydi</td>
-                    <td>
-                        <a href="#" class="st-btn">mettre à jour</a>
-                        <a href="#" class="nd-btn" title="supprimer">X</a>
-                    </td>
-                <tr>
-                    <td>EE637986</td>
-                    <td>Mohamed Hajita</td>
-                    <td>Hajita_m</td>
-                    <td>
-                        <a href="#" class="st-btn">mettre à jour</a>
-                        <a href="#" class="nd-btn" title="supprimer">X</a>
-                    </td>
-                <tr>
-                    <td>E509002</td>
-                    <td>UPM Admin</td>
-                    <td>upm</td>
-                    <td>
-                        <a href="#" class="st-btn">mettre à jour</a>
-                        <a href="#" class="nd-btn" title="supprimer">X</a>
-                    </td>
-                </tr>
+                    <?php
+                        //Query to get all admins
+                        $sql = "SELECT * FROM table_admin";
+                        // Execute the Query 
+                        $result = mysqli_query($cnx, $sql);
+
+                        if ($result == true){
+                            $rows = mysqli_num_rows($result); //functions that gets all rows from db
+                            
+                                $count_id = 1;
+
+                                if ($rows > 0){
+                                    // we hava data
+                                        while($rows=mysqli_fetch_assoc($result))
+                                        {
+                                            $id=$rows['id'];
+                                            $full_name=$rows['full_name'];
+                                            $username=$rows['username'];
+
+                                            //Dispalying the values
+                                            ?>
+                                            
+                                            <tr>
+                                                <td><?php echo $count_id++; ?></td>
+                                                <td><?php echo $full_name; ?></td>
+                                                <td><?php echo $username; ?></td>
+                                                <td>
+                                                    <a href="#" class="st-btn">mettre à jour</a>
+                                                    <a href="<?php echo SITEURL; ?>admin/remove-admin.php>id=<?php echo $id; ?>" class="nd-btn" title="supprimer">X</a>
+                                                </td>
+                                            <tr>
+
+                                            <?php
+                                        }
+                                }
+                                else{
+                                    //we do not have any data
+                                    echo '<p id="successMessage" style="  background-color: #edd4d4;
+                                    color: black    ;
+                                    padding: 10px;
+                                    border: 1px solid red;
+                                    border-radius: 5px;
+                                    font-size: 1rem;
+                                    width: 40%;"
+                                    >désolé, vous n avez pas d administrateur !</p>';
+                                }
+                        }
+                    ?>
             </table>
 
         </div>
