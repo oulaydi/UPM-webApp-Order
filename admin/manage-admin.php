@@ -4,7 +4,7 @@
 .st-btn{
     background-color: rgba(106, 219, 26, 0.802);
     padding: 2%;
-    margin-left: 13%;
+    margin-left: 10%;
     color: white;
     font-size: 1em;
     text-decoration: none;
@@ -21,7 +21,7 @@
 .nd-btn{
     background-color: rgba(255, 0, 0, 0.591);
     padding: 2%;
-    margin-left: 12%;
+    margin-left: 2%;
     color: white;
     font-size: 1em;
     text-decoration: none;
@@ -51,6 +51,10 @@
                     echo $_SESSION['add'];
                     unset($_SESSION['add']);
                 }
+                if(isset($_SESSION['delete'])){
+                    echo $_SESSION['delete'];
+                    unset($_SESSION['delete']);
+                }
 
             ?>
 
@@ -59,6 +63,7 @@
             <a href="add-admin.php" class="add-btn">Ajouter</a>
             <br/><br/>
             <br/>
+            
 
             <table class="tbl-full">
                 <tr>
@@ -95,8 +100,9 @@
                                                 <td><?php echo $full_name; ?></td>
                                                 <td><?php echo $username; ?></td>
                                                 <td>
-                                                    <a href="#" class="st-btn">mettre à jour</a>
-                                                    <a href="<?php echo SITEURL; ?>admin/remove-admin.php>id=<?php echo $id; ?>" class="nd-btn" title="supprimer">X</a>
+                                                    <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="st-btn">mettre à jour</a>
+                                                    <a href="<?php echo SITEURL; ?>admin/mdp-admin.php?id=<?php echo $id; ?>" class="mdp-btn">changer le mdp</a>
+                                                    <a href="<?php echo SITEURL; ?>admin/remove-admin.php?id=<?php echo $id; ?>" class="nd-btn" title="supprimer">X</a>
                                                 </td>
                                             <tr>
 

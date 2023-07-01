@@ -8,7 +8,7 @@
 
     //Create a SQL Query to delete admin
 
-    $sql = "DELETE FROM tabla_admin WHERE id=$id";
+    $sql = "DELETE FROM table_admin WHERE id=$id";
 
     // Execute the Query 
 
@@ -17,10 +17,28 @@
     //check the Query if successfully executed or not
 
     if($result == true){
-        echo "administrateur supprimé";
+        $_SESSION['delete'] = '<p style=" background-color: #edd4d4;
+                                                                color: #black;
+                                                                padding: 10px;
+                                                                border: 1px solid red;
+                                                                border-radius: 5px;
+                                                                font-size: 1rem;
+                                                                width: 40%;"
+                                                                >administrateur supprimé avec succès!</p>';
+                   //redirect page to manage admin!
+                   header("location:".SITEURL.'admin/manage-admin.php');
     }
     else{
-        echo "Erreur, administrateur non supprimé!";
+        $_SESSION['delete'] = '<p style=" background-color: #edd4d4;
+                                                                color: black;
+                                                                padding: 10px;
+                                                                border: 1px solid red;
+                                                                border-radius: 5px;
+                                                                font-size: 1rem;
+                                                                width: 40%;"
+                                                                >Erreur, administrateur non supprimé!</p>';
+                    //redirect page to manage admin!
+                    header("location:".SITEURL.'admin/manage-admin.php');
     }
 
     //Redirect to manage admin page with a message

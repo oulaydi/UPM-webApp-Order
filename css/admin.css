@@ -111,7 +111,21 @@ table tr td {
 }
 
 
-
+.mdp-btn{
+    background-color: rgb(79, 79, 207);
+    padding: 2%;
+    margin-left: 3%;
+    color: white;
+    font-size: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+    border-radius: 3px;
+}
+.mdp-btn:hover{
+    color: white;
+    background-color: blue;
+}
 
 /* footer */
 .footer{
