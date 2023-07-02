@@ -95,11 +95,11 @@ form{
                 <table class="tbl-update">
                 <tr>
                     <td class="label">Nom complète : </td>
-                    <td><input class="update-input" type="text" name="full_name" required placeholder="Nom Prénom" autocomplete="off" value="<?php echo $full_name; ?>"></td>
+                    <td><input class="update-input" type="text" name="full_name" placeholder="Nom Prénom" autocomplete="off" value="<?php echo $full_name; ?>"></td>
                 </tr>
                 <tr>
                     <td class="label">Nom d'utilisateur : </td>
-                    <td><input class="update-input" type="text" name="username" required placeholder="nom_prénom" autocomplete="off" value="<?php echo $username; ?>"></td>
+                    <td><input class="update-input" type="text" name="username" placeholder="nom_prénom" autocomplete="off" value="<?php echo $username; ?>"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
