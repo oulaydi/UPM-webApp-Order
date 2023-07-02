@@ -24,7 +24,7 @@
                                                                 border-radius: 5px;
                                                                 font-size: 1rem;
                                                                 width: 40%;"
-                                                                >administrateur supprimé avec succès!</p>';
+                                                                >L\'administrateur supprimé avec succès!</p>';
                    //redirect page to manage admin!
                    header("location:".SITEURL.'admin/manage-admin.php');
     }

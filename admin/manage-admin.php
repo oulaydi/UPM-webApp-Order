@@ -55,6 +55,22 @@
                     echo $_SESSION['delete'];
                     unset($_SESSION['delete']);
                 }
+                if(isset($_SESSION['update'])){
+                    echo $_SESSION['update'];
+                    unset($_SESSION['update']);
+                }
+                if(isset($_SESSION['pwd_is_same'])){
+                    echo $_SESSION['pwd_is_same'];
+                    unset($_SESSION['pwd_is_same']);
+                }
+                if(isset($_SESSION['pwd-chaned'])){
+                    echo $_SESSION['pwd-chaned'];
+                    unset($_SESSION['pwd-chaned']);
+                }
+                if(isset($_SESSION['pwd-chaned'])){
+                    echo $_SESSION['pwd-chaned'];
+                    unset($_SESSION['pwd-chaned']);
+                }
 
             ?>
 
@@ -118,7 +134,7 @@
                                     border-radius: 5px;
                                     font-size: 1rem;
                                     width: 40%;"
-                                    >désolé, vous n avez pas d administrateur !</p>';
+                                    >désolé, vous n\'avez pas d\'administrateur !</p>';
                                 }
                         }
                     ?>
