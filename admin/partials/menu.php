@@ -1,6 +1,4 @@
-<?php include('../config/constants.php');
-      include('check-login.php');
-?>
+<?php include('../config/constants.php');?>
 
 
 <!DOCTYPE html>
@@ -20,10 +18,9 @@
                 <li>
                     <a href="admin.php">Accueil</a>
                     <a href="manage-admin.php">Admin</a>
-                    <a href="manage-cate.php">Catégories</a>
                     <a href="manage-food.php">repas</a>
                     <a href="manage-order.php">commandes</a>
-                    <a href="logout.php">Se déconnecter</a>
+                    <a href="logout.php"><i class="uil uil-signout"></i></a>
                 </li>
             </ul>
         </div>

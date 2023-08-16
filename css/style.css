@@ -119,11 +119,11 @@ fieldset{
 
 /* CSS for Food SEarch Section */
 .food-search{
-    background-image: url(/images/bg.png);
-    height: 8cm;
+    background-image: url(../../webProject/images/bg.png);
+    /* height: 8cm;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
 }
 
 .food-search input[type="search"]{

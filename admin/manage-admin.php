@@ -18,16 +18,21 @@
     background-color: green;
 }
 
-.nd-btn{
-    background-color: rgba(255, 0, 0, 0.591);
-    padding: 2%;
-    margin-left: 2%;
-    color: white;
-    font-size: 1em;
-    text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
-    border-radius: 3px;
+/* Style for the "X" link */
+.nd-btn {
+  
+  margin-left: 2%;
+  padding: 5px 10px;
+  background-color: rgba(255, 0, 0, 0.591);
+  color: white;
+  text-decoration: none;
+  border-radius: 50%; /* Make it circular */
+  line-height: 1; /* Center the "X" vertically */
+  display: inline-flex; /* Maintain circular shape */
+  align-items: center; /* Center the "X" horizontally */
+  justify-content: center;
+  width: 25px; /* Set a fixed width for circular shape */
+  height: 25px; /* Set a fixed height for circular shape */
 }
 
 .nd-btn:hover{
@@ -134,7 +139,7 @@
                                     border-radius: 5px;
                                     font-size: 1rem;
                                     width: 40%;"
-                                    >désolé, vous n\'avez pas d\'administrateur !</p>';
+                                    >Vous n\'avez pas d\'administrateur !</p>';
                                 }
                         }
                     ?>
