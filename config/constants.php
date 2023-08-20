@@ -5,6 +5,7 @@
     session_start();
 
     define('SITEURL', 'http://localhost/webProject/');
+    
     define('LOCALHOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASSWORD', '02976cef6a');

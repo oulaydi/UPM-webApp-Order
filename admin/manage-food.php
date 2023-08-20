@@ -27,6 +27,7 @@
 
 /* Style for the container <td> */
 td {
+    justify-items: center;
   gap: 10px; /* Add some spacing between the anchors */
 }
 
@@ -65,6 +66,51 @@ td {
     background-color: red;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+    /* Set a maximum width for responsiveness */
+    margin: auto;
+  }
+
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Style for the image cell */
+  .tbl-full td:nth-child(5) {
+    text-align: center;
+  }
+
+  /* Style for the action cell */
+  .tbl-full td:nth-child(6) {
+    text-align: center;
+  }
+
+  /* Add some spacing and color to the action buttons */
+  .action-button {
+    padding: 6px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .action-button:hover {
+    background-color: #45a049;
+  }
+
 </style>
 
     <!-- main starts -->
@@ -73,21 +119,29 @@ td {
             <h1>Repas</h1>
 
             <?php
-                if(isset($_SESSION['upload']))
-                {
-                    echo $_SESSION['upload'];
-                    unset($_SESSION['upload']);
+                if(isset($_SESSION['upload_food'])) {
+                    echo $_SESSION['upload_food'];
+                    unset($_SESSION['upload_food']);
+                }
+
+                if(isset($_SESSION['delete_food'])) {
+                    echo $_SESSION['delete_food'];
+                    unset($_SESSION['delete_food']);
+                }   
+                if(isset($_SESSION['auto'])) {
+                    echo $_SESSION['auto'];
+                    unset($_SESSION['auto']);
                 }
             ?>
 
 
             <br/><br/>
             <br/>
-            <a href="add-food.php" class="add-btn">ajouter des repas</a>
+            <a href="add-food.php" class="add-btn">Ajouter des repas</a>
             <br/><br/>
             <br/>
 
-            <table class="tbl-full">
+            <table border="2" cellpadding="0" class="tbl-full">
                 <tr>
                     <th>N°</th>
                     <th>Titre</th>
@@ -111,12 +165,10 @@ td {
                     // Create a counter :1 
                     $cn = 1;
 
-                    if($count >= 1)
-                    {
+                    if($count >= 1) {
                         // so we have data 
                         // then get the data from the table and display it
-                        while($row = mysqli_fetch_assoc($result))
-                        {
+                        while($row = mysqli_fetch_assoc($result)) {
                             // get value from individual columns
                             $id = $row['id_food'];
                             $titre = $row['titre'];
@@ -129,17 +181,14 @@ td {
                                 <td><?php echo $cn++; ?></td>
                                 <td><?php echo $titre; ?></td>
                                 <td><?php echo $description; ?></td>
-                                <td><?php echo $prix.'dh'; ?></td>
+                                <td><?php echo $prix . 'dh'; ?></td>
                                 <td>
-                                    <?php 
+                                    <?php
                                         // check if we have an image or not
-                                        if($image_file == "")
-                                        {
+                                        if($image_file == "") {
                                             // we do not have images
                                             echo '<p>No images</p>';
-                                        }
-                                        else
-                                        {
+                                        } else {
                                             // we have images
                                             ?>
                                                 <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_file; ?>" width="70px">
@@ -148,25 +197,25 @@ td {
                                     ?>
                                 </td>
                                 <td>
-                                    <a href="#" class="st-btn">mettre à jour</a>
-                                    <a href="#" class="nd-btn" title="supprimer">X</a>
+                                <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="st-btn">Mettre à jour</a>
+                                <a href="<?php echo SITEURL; ?>admin/remove-food.php?id=<?php echo $id; ?>&image_file=<?php echo $image_file; ?>" class="nd-btn" title="Supprimer">X</a>
+
                                 </td>
                             </tr>
 
                             <?php
                         }
-                    }
-                    else
-                    {
+                    } else {
                         // we dont have data
-                        echo '<p id="successMessage" style="  background-color: #edd4d4;
-                                    color: black    ;
+                        echo '<p id="successMessage" style="background-color: #edd4d4;
+                                    color: black;
+                                    margin-bottom: .5cm;
                                     padding: 10px;
                                     border: 1px solid red;
                                     border-radius: 5px;
                                     font-size: 1rem;
-                                    width: 10%;"
-                                    >No Data!</p>';
+                                    width: 20%;
+                                    ">Aucune donnée !</p>';
                     }
 
                 ?>

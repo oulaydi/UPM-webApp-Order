@@ -99,7 +99,7 @@ form{
                 </tr>
                 <tr>
                     <td colspan="2">
-                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <input type="hidden" name="id" value="<?php $id;?>">
                     <input type="submit" value="Modifier" name="submit" class="st-btn">
                     </td>
                 </tr>
@@ -135,7 +135,8 @@ form{
 
                             //Update the pasword from sql
                             $sql1 = "UPDATE table_admin SET
-                                password='$new_pwd' WHERE id=$id
+                                password='$new_pwd' WHERE 
+                                id=$id
                             "; 
 
                             //Execute the Query 

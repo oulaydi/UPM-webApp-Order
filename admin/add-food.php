@@ -84,7 +84,7 @@
                 
             <label class="label">Description:</label>
             <textarea class="add-input" name="description" placeholder="votre repas" cols="20" rows="5"></textarea><br><br>
-                
+            
             <label class="label">Prix:</label>
             <input class="add-input" type="number" name="prix" min="10" autocomplete="off"><br><br>
                 
@@ -148,7 +148,7 @@
                                                                 width: 40%;"
                                                                 >Erreur l\'image sont pas ajoute !</p>';
                             //redirect page to manage admin!
-                            header("location:".SITEURL.'admin/add-food.php');
+                            header("location:".SITEURL.'admin/update-food.php');
                             die();
                         }
                     }
@@ -175,7 +175,7 @@
                 if ($result == true)
                 {
                     //data inserted successfully
-                    $_SESSION['upload'] = '<p style="  background-color: #d4edda;
+                    $_SESSION['upload_food'] = '<p style="  background-color: #d4edda;
                                             color: #155724;
                                             margin-top: 1cm;
                                             padding: 10px;
@@ -190,7 +190,7 @@
                 }
                 else
                 {
-                    $_SESSION['upload'] = '<p style="   background-color: #edd4d4;
+                    $_SESSION['upload_food'] = '<p style="   background-color: #edd4d4;
                                                         color: black;
                                                         padding: 10px;
                                                         border: 1px solid red;
