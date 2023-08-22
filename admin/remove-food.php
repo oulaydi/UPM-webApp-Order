@@ -10,7 +10,7 @@
 
         // remove the image if its available
         // check if the image is available or not
-        if($image)
+        if(file_exists($image))
         {
             // it has image and need to remove from the folder
             // Get the image path
