@@ -128,6 +128,18 @@ table {
                     echo $_SESSION['delete_food'];
                     unset($_SESSION['delete_food']);
                 }   
+                if(isset($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }   
+                if(isset($_SESSION['query'])) {
+                    echo $_SESSION['query'];
+                    unset($_SESSION['query']);
+                }   
+                if(isset($_SESSION['query_error'])) {
+                    echo $_SESSION['query_error'];
+                    unset($_SESSION['query_error']);
+                }   
                 if(isset($_SESSION['auto'])) {
                     echo $_SESSION['auto'];
                     unset($_SESSION['auto']);
@@ -198,7 +210,8 @@ table {
                                 </td>
                                 <td>
                                 <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="st-btn">Mettre à jour</a>
-                                <a href="<?php echo SITEURL; ?>admin/remove-food.php?id=<?php echo $id; ?>&image_file=<?php echo $image_file; ?>" class="nd-btn" title="Supprimer">X</a>
+
+                                <a href="<?php echo SITEURL; ?>admin/remove-food.php?id=<?php echo $id; ?>&image=<?php echo $image_file; ?>" class="nd-btn" title="Supprimer">X</a>
 
                                 </td>
                             </tr>
