@@ -2,88 +2,44 @@
 
     include('../config/constants.php');
 
-    if(isset($_GET['id']) && isset($_GET['image_file']))
-    {
-        $id = $_GET['id'];
-        $image_file = $_GET['image_file'];
+    // get the id if the admin li bina removiwh
 
-        if($image_file != "")
-        {
-            $path = "../images/food".$image_file;
+    $id = $_GET['id'];
 
-            $remove = unlink($path);
+    //Create a SQL Query to delete admin
 
-            if($remove == false)
-            {
-                $_SESSION['delete_food'] =  '<p id="successMessage" style="background-color: #edd4d4;
-                                        color: black;
-                                        margin-top: 1cm;
-                                        padding: 10px;
-                                        border: 1px solid red;
-                                        border-radius: 5px;
-                                        font-size: 1rem;
-                                        width: 30%;
-                                        ">Erreur l\'image non supprimé!</p>';
-        
-                header('location:'.SITEURL.'admin/manage-food.php');
-                die();
-            }
-        }
+    $sql = "DELETE FROM table_admin WHERE id=$id";
 
+    // Execute the Query 
 
-        $sql = "DELETE FROM table_food WHERE id=$id";
+    $result = mysqli_query($cnx, $sql);
 
-        $resault = mysqli_query($cnx, $sql);
+    //check the Query if successfully executed or not
 
-        if($resault == true)
-        {
-            $_SESSION['delete_food'] =  '<p id="successMessage" style="background-color: #edd4d4;
-                                        color: black;
-                                        margin-bottom: .5cm;
-                                        margin-top: .5cm;
-                                        padding: 10px;
-                                        border: 1px solid red;
-                                        border-radius: 5px;
-                                        font-size: 1rem;
-                                        width: 15%;
-                                        ">fait !</p>';
-        
-            header('location:'.SITEURL.'admin/manage-food.php');
-        }
-        else
-        {
-            $_SESSION['delete_food'] =  '<p id="successMessage" style="background-color: #edd4d4;
-                                        color: black;
-                                        margin-top: 1cm;
-                                        padding: 10px;
-                                        border: 1px solid red;
-                                        border-radius: 5px;
-                                        font-size: 1rem;
-                                        width: 10%;
-                                        ">Erreur!</p>';
-        
-        header('location:'.SITEURL.'admin/manage-food.php');
-        }
+    if($result == true){
+        $_SESSION['delete'] = '<p style=" background-color: #edd4d4;
+                                                                color: #black;
+                                                                padding: 10px;
+                                                                border: 1px solid red;
+                                                                border-radius: 5px;
+                                                                font-size: 1rem;
+                                                                width: 40%;"
+                                                                >L\'administrateur supprimé avec succès!</p>';
+                   //redirect page to manage admin!
+                   header("location:".SITEURL.'admin/manage-admin.php');
+    }
+    else{
+        $_SESSION['delete'] = '<p style=" background-color: #edd4d4;
+                                                                color: black;
+                                                                padding: 10px;
+                                                                border: 1px solid red;
+                                                                border-radius: 5px;
+                                                                font-size: 1rem;
+                                                                width: 40%;"
+                                                                >Erreur, administrateur non supprimé!</p>';
+                    //redirect page to manage admin!
+                    header("location:".SITEURL.'admin/manage-admin.php');
+    }
 
-
-
-
-
-    }   
-    else
-    {
-        $_SESSION['auto'] =  '<p id="successMessage" style="background-color: #edd4d4;
-                                        color: black;
-                                        margin-bottom: .5cm;
-                                        margin-top: .5cm;
-                                        padding: 10px;
-                                        border: 1px solid red;
-                                        border-radius: 5px;
-                                        font-size: 1rem;
-                                        width: 15%;
-                                        ">Erreur!</p>';
-        
-        header('location:'.SITEURL.'admin/manage-food.php');
-        }
-
+    //Redirect to manage admin page with a message
 ?>
