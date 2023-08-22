@@ -144,6 +144,10 @@ table {
                     echo $_SESSION['auto'];
                     unset($_SESSION['auto']);
                 }
+                if(isset($_SESSION['update'])) {
+                    echo $_SESSION['update'];
+                    unset($_SESSION['update']);
+                }
             ?>
 
 

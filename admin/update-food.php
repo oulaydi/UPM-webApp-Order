@@ -1,35 +1,44 @@
 <?php include('partials/menu.php'); ?>
 
+
 <?php
 
-    // check if the ID set or not
-    if(isset($_GET['id']))
-    {
-        // get the infos
-            $id = $_GET['id'];
-        
-        // SQL Query to get the selected food
-        $sql = "SELECT * FROM table_food WHERE id_food=$id";
+if(isset($_GET['id']))
+{
+    // get all the info
+    $id = $_GET['id'];
 
-        // Execute the Query 
-        $result = mysqli_query($cnx, $sql); 
+    // SQL Query to get selected data
+    $sql = "SELECT * FROM table_food WHERE id=$id";
+    
+    // execute the query
+    $result = mysqli_query($cnx, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        // get the values from the executed query 
         $row = mysqli_fetch_assoc($result);
 
-        // get info form the db
-        $titre = $row['titre'];
+        // get individual data from selected food
+        $title = $row['titre'];
         $description = $row['description'];
         $prix = $row['prix'];
         $current_image = $row['image'];
-
-
+    } else {
+        // Handle no result or query error here
     }
-    else
-    {
-        // redirect to manage food page
-        header('location:'.SITEURL.'admin/manage-food.php');
-    }
+}
+else
+{
+    // redirect to manage food page
+    $_SESSION['update'] = '<p style="  background-color: #edd4d4; ...">Erreur! ...</p>';
+    //redirect page to manage food!
+    header("location:".SITEURL.'admin/manage-food.php');
+    exit(); // Always remember to exit after a header redirect
+}
 
 ?>
+
+
 
 <style>
  .tbl-add {
@@ -100,46 +109,31 @@
             <h1>Modifier le repas</h1>
             
              <form action="" method="POST" enctype="multipart/form-data">
-            <label class="label">Titre:</label>
-            <input class="add-input" type="text" name="titre" value="<?php echo $titre; ?>" autocomplete="off"><br><br>
+                <label class="label">Titre:</label>
+                <input class="add-input" type="text" name="titre" value="" autocomplete="off"><br><br>
+                    
+                <label class="label">Description:</label>
+                <textarea class="add-input" name="description" cols="20" rows="5"></textarea><br><br>
                 
-            <label class="label">Description:</label>
-            <textarea class="add-input" name="description" cols="20" rows="5"><?php echo $description; ?></textarea><br><br>
-            
-            <label class="label">Prix:</label>
-            <input class="add-input" type="number" name="prix" value="<?php echo $prix; ?>" min="10" autocomplete="off"><br><br>
-            
-            <label class="label">Image actuelle</label>
-            <tr><td>
-                <?php
-                    if($current_image == "")
-                    {
-                        // there is not image
-                        echo "il n'y a pas d'image";
-                    }
-                    else
-                    {
-                        // image available
-                        ?>
-                        <img src="<?php echo SITEURL; ?>images/food/<?php echo $current_image; ?>" width="70px">
-                        <?php
-                    }
-                ?>
-            </td></tr><br><br>
+                <label class="label">Prix:</label>
+                <input class="add-input" type="number" name="prix" min="10" value="" autocomplete="off"><br><br>
                 
-            
+                <label class="label">Image actuelle</label>
+                <tr><td>
 
-            <label class="label">Nouvelle image:</label>
-            <input class="add-input" type="file" name="image"><br><br>
-            
-            <td><tr>
-                <input type="hidden" name="id" value="<?php echo $id; ?>">
-                <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
-                <input type="submit" value="Sauvegarder" name="submit" class="st-btn">
-            </tr></td>
+                </td></tr><br><br>
+                    
+                <label class="label">Nouvelle image:</label>
+                <input class="add-input" type="file" name="image"><br><br>
+                
+                <td><tr>
+                    <!-- <input type="hidden" name="id" value="<php echo $id; ?>"> -->
+                    <!-- <input type="hidden" name="current_image" value="<php echo $current_image; ?>"> -->
+                    <input type="submit" value="Sauvegarder" name="submit" class="st-btn">
+                </tr></td>
         </form>
 
-        <?php 
+        <!-- <php 
         
             if(isset($_POST['submit']))
             {
@@ -253,8 +247,8 @@
 
                 
             }
-        
-        ?>
-
+?> -->
         </div>
 </div>
+
+<?php include('partials/footer.php'); ?>
