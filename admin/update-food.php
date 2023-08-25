@@ -20,8 +20,6 @@
         $description = $row['description'];
         $prix = $row['prix'];
         $current_image = $row['image'];
-
-
     }
     else
     {
@@ -89,7 +87,7 @@
             font-size: 1.2em;
             font-size: 1.2em;
             display: inline-block;
-            width: 100px; /* Adjust the width as needed */
+            width: 200px; /* Adjust the width as needed */
             margin-right: 10px;
             vertical-align: top;
         }
@@ -100,16 +98,16 @@
             <h1>Modifier le repas</h1>
             
              <form action="" method="POST" enctype="multipart/form-data">
-            <label class="label">Titre:</label>
+            <label class="label">Titre :</label>
             <input class="add-input" type="text" name="titre" value="<?php echo $titre; ?>" autocomplete="off"><br><br>
                 
-            <label class="label">Description:</label>
+            <label class="label">Description :</label>
             <textarea class="add-input" name="description" cols="20" rows="5"><?php echo $description; ?></textarea><br><br>
             
-            <label class="label">Prix:</label>
+            <label class="label">Prix :</label>
             <input class="add-input" type="number" name="prix" value="<?php echo $prix; ?>" min="10" autocomplete="off"><br><br>
             
-            <label class="label">Image actuelle</label>
+            <label class="label">Image actuelle :</label>
             <tr><td>
                 <?php
                     if($current_image == "")
@@ -129,7 +127,7 @@
                 
             
 
-            <label class="label">Nouvelle image:</label>
+            <label class="label">Nouvelle image :</label>
             <input class="add-input" type="file" name="image"><br><br>
             
             <td><tr>

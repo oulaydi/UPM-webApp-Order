@@ -2,7 +2,7 @@
 
 <style>
     .tbl-mdp{
-    width: 50%
+    width: 500px
 }
 
 /* add form */
@@ -94,7 +94,7 @@ form{
                     <td><input class="mdp-input" type="password" name="new_pwd" required placeholder="nouveau mot de pass" autocomplete="off"></td>
                 </tr>
                 <tr>
-                    <td class="label">Confirmer new password : </td>
+                    <td class="label" >Confirmer nouveau mot de passe : </td>
                     <td><input class="mdp-input" type="password" name="confirm_pwd" required placeholder="confirmer mot de pass" autocomplete="off"></td>
                 </tr>
                 <tr>
