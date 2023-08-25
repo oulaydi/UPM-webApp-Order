@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/small_logo.png" type="image/x-icon">
-    <title>Menu-Pizza</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-</head>
-
-<body>
-    <!-- Navbar Section Starts Here -->
-    <section class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
-                </a>
-            </div>
-
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="index.html">Accueil</a>
-                    </li>
-                    <li>
-                        <a href="categories.html">Categories</a>
-                    </li>
-                    <li>
-                        <a href="foods.html">Foods</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contactez-nous</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-    </section>
-    <!-- Navbar Section Ends Here -->
+<?php include('partials-front/menu.php');?>
 
     <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
@@ -59,7 +18,7 @@
                     </p>
                     <br>
 
-                    <a href="order-pizza.html" class="btn btn-primary">Order</a>
+                    <a href="order-pizza.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -161,31 +120,5 @@
     </section>
     <!-- fOOD Menu Section Ends Here -->
 
-    <!-- social Section Starts Here -->
-    <section class="social">
-        <div class="container text-center">
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/in/oussamaoulaydi/" target="_blank"><i class="uil uil-linkedin" id="ta3i"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.facebbok.com/oussamaoulaybat/" target="_blank"><i class="uil uil-facebook-f" id="ta3i"></i></a>
-                </li>
-                <li>
-                    <a href="github.com/oulaydi" target="_blank"><i class="uil uil-github" id="ta3i"></i></a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- social Section Ends Here -->
 
-    <!-- footer Section Starts Here -->
-    <section class="footer">
-        <div class="container text-center">
-            <p>2023 &copy; All rights reserved. By <a href="https://www.linkedin.com/in/oussamaoulaydi/" target="_blank">Oulaydi </a><span>|</span><a href="https://www.linkedin.com/in/oussamaoulaydi/"> Hajita</a></p>
-        </div>
-    </section>
-    <!-- footer Section Ends Here -->
-
-</body>
-</html>
+    <?php include('partials-front/footer.php'); ?>

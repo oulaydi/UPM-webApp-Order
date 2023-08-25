@@ -1,51 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/small_logo.png" type="image/x-icon">
-    <title>Marrakchi Food & Drink</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-</head>
 
-<body>
-    <!-- Navbar Section Starts Here -->
-    <section class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
-                </a>
-            </div>
+<?php include('partials-front/menu.php');?>
 
-            <div class="menu text-right">
-                <ul>
-                    <li>
-                        <a href="index.html">Accueil</a>
-                    </li>
-                    <li>
-                        <a href="categories.html">Categories</a>
-                    </li>
-                    <li>
-                        <a href="foods.html">Foods</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contactez-nous</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="clearfix"></div>
-        </div>
-    </section>
-    <!-- Navbar Section Ends Here -->
-
-    <!-- fOOD sEARCH Section Starts Here -->
+<!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
             
-            <form action="food-search.html" method="POST">
+            <form action="food-search.php" method="POST">
                 <input type="search" name="search" placeholder="Rechercher .." required>
                 <input type="submit" name="submit" value="Recherche" class="btn btn-primary">
             </form>
@@ -59,7 +19,7 @@
         <div class="container">
             <h2 class="text-center">Repas le plus vendu</h2>
 
-            <a href="category-pizza.html">
+            <a href="category-pizza.php">
             <div class="box-3 float-container">
                 <img src="images/pizza.jpg" alt="Pizza" class="img-responsive img-curve" id="oussama">
 
@@ -67,7 +27,7 @@
             </div>
             </a>
 
-            <a href="category-burger.html">
+            <a href="category-burger.php">
             <div class="box-3 float-container">
                 <img src="images/burger.jpg" alt="Burger" class="img-responsive img-curve" id="scroll_pic">
 
@@ -75,7 +35,7 @@
             </div>
             </a>
 
-            <a href="category-tacos.html">
+            <a href="category-tacos.php">
             <div class="box-3 float-container">
                 <img src="images/momo.jpg" alt="Momo" class="img-responsive img-curve test" id="scroll_pic">
 
@@ -106,7 +66,7 @@
                     </p>
                     <br>
 
-                    <a href="order.html" class="btn btn-primary">Order</a>
+                    <a href="order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -203,37 +163,9 @@
         </div>
 
         <p class="text-center">
-            <a href="foods.html">voir tout le menu</a>
+            <a href="foods.php">voir tout le menu</a>
         </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->
 
-    <!-- social Section Starts Here -->
-    <section class="social">
-        <div class="container text-center">
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/in/oussamaoulaydi/" target="_blank"><i class="uil uil-linkedin" id="ta3i"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.facebbok.com/oussamaoulaybat/" target="_blank"><i class="uil uil-facebook-f" id="ta3i"></i></a>
-                </li>
-                <li>
-                    <a href="https://github.com/oulaydi" target="_blank"><i class="uil uil-github" id="ta3i"></i></a>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <!-- social Section Ends Here -->
-
-    <!-- footer Section Starts Here -->
-    <section class="footer">
-        <div class="container text-center">
-            <p>2023 &copy; All rights reserved. By <a href="https://www.linkedin.com/in/oussamaoulaydi/" target="_blank">Oulaydi </a><span>|</span><a href="https://www.linkedin.com/in/oussamaoulaydi/"> Hajita</a></p>
-        </div>
-    </section>
-    <!-- footer Section Ends Here -->
-
-    <script src="js/app.js"></script>
-</body>
-</html>
+    <?php include('partials-front/footer.php'); ?>
