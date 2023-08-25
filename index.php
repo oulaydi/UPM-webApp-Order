@@ -5,8 +5,10 @@
     <section class="food-search text-center">
         <div class="container">
             
-            <form action="food-search.php" method="POST">
-                <input type="search" name="search" placeholder="Rechercher .." required>
+        
+
+            <form action="<?php echo SITEURL; ?>food-search.php" method="POST">
+                <input type="search" name="search" placeholder="Rechercher .." required autocomplete="off">
                 <input type="submit" name="submit" value="Recherche" class="btn btn-primary">
             </form>
 
