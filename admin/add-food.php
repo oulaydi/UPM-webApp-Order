@@ -58,7 +58,7 @@
             font-size: 1.2em;
             font-size: 1.2em;
             display: inline-block;
-            width: 100px; /* Adjust the width as needed */
+            width: 200px; /* Adjust the width as needed */
             margin-right: 10px;
             vertical-align: top;
         }
@@ -79,16 +79,16 @@
             ?>
 
         <form action="" method="POST" enctype="multipart/form-data">
-            <label class="label">Titre:</label>
+            <label class="label">Titre :</label>
             <input class="add-input" type="text" name="titre" placeholder="Tajin" autocomplete="off"><br><br>
                 
-            <label class="label">Description:</label>
+            <label class="label">Description :</label>
             <textarea class="add-input" name="description" placeholder="votre repas" cols="20" rows="5"></textarea><br><br>
             
-            <label class="label">Prix:</label>
-            <input class="add-input" type="number" name="prix" min="10" autocomplete="off"><br><br>
+            <label class="label">Prix :</label>
+            <input class="add-input" type="number" name="prix" min="10" placeholder="dh" autocomplete="off"><br><br>
                 
-            <label class="label">Image:</label>
+            <label class="label">Image :</label>
             <input class="add-input" type="file" name="image"><br><br>
                 
             <input type="submit" value="Ajouter" name="submit" class="st-btn">
