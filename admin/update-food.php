@@ -113,7 +113,7 @@
                     if($current_image == "")
                     {
                         // there is not image
-                        echo "il n'y a pas d'image";
+                        echo '<p style="color: red; font-weight: bold; display: inline-block;" >il n\'y a pas d\'image !</p>';
                     }
                     else
                     {
@@ -156,12 +156,12 @@
                 if(isset($_FILES['image']['name']))
                 {
                     //Upload BUtton Clicked
-                    $image_file = $_FILES['image']['name']; //New Image NAme
+                    $image_file = $_FILES['image']['name']; //New Image Name
 
                     //CHeck whether th file is available or not
-                    if($image_file!="")
+                    if($image_file != "")
                     {
-                        //IMage is Available
+                        //Image is Available
                         //A. Uploading New Image
 
                         //REname the Image
@@ -180,7 +180,7 @@
                         $upload = move_uploaded_file($src_path, $dest_path);
 
                         /// CHeck whether the image is uploaded or not
-                        if($upload==false)
+                        if($upload == false)
                         {
                             //FAiled to Upload
                             $_SESSION['upload'] = "<div class='error'>Failed to Upload new Image.</div>";
@@ -191,7 +191,7 @@
                         }
                         //3. Remove the image if new image is uploaded and current image exists
                         //B. Remove current Image if Available
-                        if($current_image!="")
+                        if($current_image != "")
                         {
                             //Current Image is Available
                             //REmove the image
@@ -200,7 +200,7 @@
                             $remove = unlink($remove_path);
 
                             //Check whether the image is removed or not
-                            if($remove==false)
+                            if($remove == false)
                             {
                                 //failed to remove current image
                                 $_SESSION['remove-failed'] = "<div class='error'>Faile to remove current image.</div>";
@@ -228,25 +228,43 @@
                     titre = '$titre',
                     description = '$description',
                     prix = $prix,
-                    image_file = '$image_file',
-                    WHERE id=$id
+                    image = '$image_file'
+                    WHERE id_food = $id
                 ";
 
                 //Execute the SQL Query
                 $res1 = mysqli_query($cnx, $sql1);
 
                 //CHeck whether the query is executed or not 
-                if($res1==true)
+                if($res1 == true)
                 {
                     //Query Exectued and Food Updated
-                    $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    $_SESSION['update'] = '<p style="  background-color: #d4edda;
+                                            color: #155724;
+                                            padding: 10px;
+                                            margin-top: 1cm;
+                                            border: 1px solid #c3e6cb;
+                                            border-radius: 5px;
+                                            font-size: 1rem;
+                                            width: 40%;"
+                                            >les données ont été modifié avec succès!</p>';
+            //redirect page to manage food!
+            header("location:".SITEURL.'admin/manage-food.php');
                 }
                 else
                 {
                     //Failed to Update Food
-                    $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
-                    header('location:'.SITEURL.'admin/manage-food.php');
+                    $_SESSION['update'] = '<p style="   background-color: #edd4d4;
+                                                color: black;
+                                                padding: 10px;
+                                                margin-top: 1cm;
+                                                border: 1px solid red;
+                                                border-radius: 5px;
+                                                font-size: 1rem;
+                                                width: 40%;"
+                                                >Les données n\'ont pas été modifiées !</p>';
+            //redirect page to manage admin!
+            header("location:".SITEURL.'admin/manage-food.php');
                 }
 
                 

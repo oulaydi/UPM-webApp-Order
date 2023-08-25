@@ -151,7 +151,7 @@ form{
                                                 border-radius: 5px;
                                                 font-size: 1rem;
                                                 width: 40%;"
-                                                >les données sont pas modifié !</p>';
+                                                >Les données n\'ont pas été modifiées !</p>';
             //redirect page to manage admin!
             header("location:".SITEURL.'admin/update-admin.php');
         }
