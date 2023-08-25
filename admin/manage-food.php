@@ -157,14 +157,15 @@ table {
             <br/><br/>
             <br/>
 
-            <table border="2" cellpadding="0" class="tbl-full">
+            <table border="2" cellpadding="0" class="tbl-full" style="width: 904px;
+                    height: 512.59375px;">
                 <tr>
-                    <th>N°</th>
-                    <th>Titre</th>
-                    <th>Description</th>
-                    <th>Prix</th>
-                    <th>Image</th>
-                    <th>Action</th>
+                    <th style="width: 10px; ">N°</th>
+                    <th style="width: 50px; ">Titre</th>
+                    <th style="width: 90px; ">Description</th>
+                    <th style="width: 10px; ">Prix</th>
+                    <th style="width: 70px; ">Image</th>
+                    <th style="width: 100px; ">Action</th>
                 </tr>
 
                 <?php
