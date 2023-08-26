@@ -18,7 +18,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -86,7 +86,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -115,7 +115,7 @@
         </div>
 
         <p class="text-center">
-            <a href="#">voir tout le menu</a>
+            <a href="<?php echo SITEURL; ?>food.php">voir tout le menu</a>
         </p>
     </section>
     <!-- fOOD Menu Section Ends Here -->

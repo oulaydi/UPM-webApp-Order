@@ -5,7 +5,7 @@
       <div class="container">
         <h2 class="text-center">Categories</h2>
 
-        <a href="category-pizza.php">
+        <a href="<?php echo SITEURL; ?>category-pizza.php">
           <div class="box-3 float-container">
             <img
               src="images/pizza.jpg"
@@ -17,7 +17,7 @@
           </div>
         </a>
 
-        <a href="category-burger.php">
+        <a href="<?php echo SITEURL; ?>category-burger.php">
           <div class="box-3 float-container">
             <img
               src="images/burger.jpg"
@@ -29,7 +29,7 @@
           </div>
         </a>
 
-        <a href="category-tacos.php">
+        <a href="<?php echo SITEURL; ?>category-tacos.php">
           <div class="box-3 float-container">
             <img
               src="images/momo.jpg"
@@ -41,7 +41,7 @@
           </div>
         </a>
 
-        <a href="category-shawarma.php">
+        <a href="<?php echo SITEURL; ?>category-shawarma.php">
           <div class="box-3 float-container">
             <img
               src="images/shawrama.PNG"
@@ -53,7 +53,7 @@
           </div>
         </a>
 
-        <a href="category-burger-halal.php">
+        <a href="<?php echo SITEURL; ?>category-burger-halal.php">
           <div class="box-3 float-container">
             <img
               src="images/burger.jpg"

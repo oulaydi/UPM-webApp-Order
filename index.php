@@ -14,11 +14,19 @@
 
         </div>
     </section>
-    <!-- fOOD sEARCH Section Ends Here -->
+    <!-- food search Section Ends Here -->
 
-    <!-- CAtegories Section Starts Here -->
+    <!-- Categories Section Starts Here -->
     <section class="categories">
         <div class="container">
+            
+            <?php
+                if(isset($_SESSION['order'])) {
+                    echo $_SESSION['order'];
+                    unset($_SESSION['order']);
+                }
+            ?>
+
             <h2 class="text-center">Repas le plus vendu</h2>
 
             <a href="category-pizza.php">
@@ -68,7 +76,7 @@
                     </p>
                     <br>
 
-                    <a href="order.php" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -85,7 +93,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -102,7 +110,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -119,7 +127,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -136,7 +144,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
@@ -153,7 +161,7 @@
                     </p>
                     <br>
 
-                    <a href="#" class="btn btn-primary">Order</a>
+                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order</a>
                 </div>
             </div>
 
