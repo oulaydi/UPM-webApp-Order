@@ -131,10 +131,10 @@
                       $total = $prix * $qte;
                       $status = "commandé";
                     
-                      // $full_name = $_POST['nom_prenom_client'];
-                      // $tele = $_POST['tele'];
-                      // $email = $_POST['email_client'];
-                      // $addresse = $_POST['addresse'];
+                      $full_name = $_POST['nom_prenom_client'];
+                      $tele = $_POST['tele'];
+                      $email = $_POST['email_client'];
+                      $addresse = $_POST['addresse'];
 
 
                       // create a SQL Query
@@ -148,18 +148,18 @@
                       ";
 
                       // create second Query for the form info
-                      // $sql2 = "INSERT INTO table_client SET
-                      //   nom_prenom_client = '$full_name',
-                      //   tele = '$tele',
-                      //   email_client = '$email',
-                      //   addresse = '$addresse'
-                      // ";
+                      $sql2 = "INSERT INTO table_client SET
+                        nom_prenom_client = '$full_name',
+                        tele = '$tele',
+                        email_client = '$email',
+                        addresse = '$addresse'
+                      ";
 
                       // Execute the both Query
                       $result1 = mysqli_query($cnx, $sql1);
-                      // $result2 = mysqli_query($cnx, $sql2);
+                      $result2 = mysqli_query($cnx, $sql2);
 
-                      if($result1) //&& $result2)
+                      if($result1 && $result2)
                       {
                         $_SESSION['order'] = '<p id="successMessage" style="  background-color: #d4edda;
                                                               color: #155724;
