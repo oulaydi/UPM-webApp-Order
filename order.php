@@ -35,7 +35,7 @@
     }
     else
     {
-      header('location:' . SITEURL);
+      header('location:' . SITEURL); 
     }
 
   }
@@ -124,6 +124,8 @@
                     // check if the button is clicked or not
                     if(isset($_POST['submit']))
                     {
+
+                      // in order table
                       $titre = $_POST['titre'];
                       $prix = $_POST['prix'];
                       $qte = $_POST['qte'];
@@ -138,22 +140,15 @@
 
 
                       // create a SQL Query
-                      $sql1 = "INSERT INTO table_order SET
-                        titre = '$titre',
-                        prix = $prix,
-                        qte = $qte,
-                        order_date = '$order_date', 
-                        total = $total,
-                        status = $status
-                      ";
+                      $sql1 = "INSERT INTO table_order (titre, prix, qte, order_date, total, status)
+                      VALUES 
+                      ('$titre', '$prix', '$qte', '$order_date', '$total', '$status')";
 
                       // create second Query for the form info
-                      $sql2 = "INSERT INTO table_client SET
-                        nom_prenom_client = '$full_name',
-                        tele = '$tele',
-                        email_client = '$email',
-                        addresse = '$addresse'
-                      ";
+                      $sql2 = "INSERT INTO table_client (nom_prenom_client, tele, email_client, addresse)
+                      VALUES 
+                      ('$full_name', '$tele', '$email', '$addresse')";
+
 
                       // Execute the both Query
                       $result1 = mysqli_query($cnx, $sql1);
@@ -167,7 +162,7 @@
                                                               border: 1px solid #c3e6cb;
                                                               border-radius: 5px;
                                                               font-size: 1rem;
-                                                              width: 40%;"
+                                                              width: 34%;"
                                                               >Merci, votre commande a été effectué avec succès</p>';
                           header("location:".SITEURL);
                       }
