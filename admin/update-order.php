@@ -1,4 +1,7 @@
-<?php include('partials/menu.php'); ?>
+<?php include('partials/menu.php');
+ob_start();
+?>
+
 
 <style>
     .tbl-update{
@@ -67,8 +70,15 @@ form{
         <div class="cadder">
             <h1>mettre à jour la commande</h1>
 
-            <?php
+<?php
+    if(isset($_SESSION['update_order_error']))
+    {
+        echo $_SESSION['update_order_error'];
+        unset($_SESSION['update_order_error']);
+    }
+?>
 
+<?php
             // Assuming you have already established the database connection ($cnx)
 
                 //get the id to change
@@ -94,8 +104,9 @@ form{
                             $qte = $row['qte'];
                             $prix = $row['prix'];
                             $status = $row['status'];
-                        } else {
-                            header("location:".SITEURL.'admin/manage-order.php');
+                        } else
+                        {
+                            header("location:".SITEURL.'admin/manage-admin.php');
                         }
                     } else {
                         echo "Query error: " . mysqli_error($cnx);
@@ -103,27 +114,32 @@ form{
                 }
                 else
                 {
-                    header("location:".SITEURL.'admin/manage-order.php');
+                    header("location:".SITEURL.'admin/manage-admin.php');
                 }
-            ?>
+?>
 
             <form action="" method="POST">
                 <table class="tbl-update">
                 
                 <tr class="label">
-                    <td>Id : </td>
+                    <td><b>Id : </b></td>
                     <td><?php echo 'N°-26-' . $id; ?></td>
                 </tr>
                 <tr class="label">
-                    <td>Titre : </td>
+                    <td><b>Titre : </b></td>
                     <td><?php echo $titre; ?></td>
                 </tr>
                 <tr>
-                    <td class="label">Nouvelles quantités : </td>
-                    <td><input class="update-input" type="number" name="qte" min="1" autocomplete="off" value="<?php echo $qte; ?>"></td>
+                <tr class="label">
+                    <td><b>prix : </b></td>
+                    <td><?php echo $prix .' dh'; ?></td>
                 </tr>
                 <tr>
-                    <td class="label">Statut de la commande : </td>
+                    <td class="label"><b>Nouvelles quantités : </b></td>
+                    <td><input class="update-input" type="number" name="qte" min="1" autocomplete="off" value="<?php echo $qte;?>"></td>
+                </tr>
+                <tr>
+                    <td class="label"><b>Statut de la commande : </b></td>
                     <td>
                         <select name="status" style=" width: 70%;
                                                         padding: 10px;
@@ -134,7 +150,7 @@ form{
                                                         color: #333;
                                                         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                                                         transition: border-color 0.3s, box-shadow 0.3s;">
-                            <option  <?php if($status == "Commandé"){echo "selected";} ?> value="Commandé">Commandé</option>
+                            <option <?php if($status == "Commandé"){echo "selected";} ?> value="Commandé">Commandé</option>
                             <option <?php if($status == "À la livraison"){echo "selected";} ?> value="À la livraison" style="color: blue;">À la livraison</option>
                             <option <?php if($status == "Livré"){echo "selected";} ?> value="Livré" style="color: green;">Livré</option>
                             <option <?php if($status == "Annulé"){echo "selected";} ?> value="Annulé" style="color: red;">Annulé</option>
@@ -144,20 +160,21 @@ form{
                 <tr>
                     <td colspan="2">
                     <input type="hidden" name="id_order" value="<?php echo $id; ?>">
+                    <input type="hidden" name="prix" value="<?php echo $prix; ?>">
                     <input type="submit" value="Sauvegarder" name="submit" class="st-btn">
                     </td>
                 </tr>
                 </table>
             </form>
 
-            <?php
-            
+<?php            
                 // check if the button is clicked or not
                 if(isset($_POST['submit']))
                 {
                     // get the data from the form
                     $id = $_POST['id_order'];
                     $qte = $_POST['qte'];
+                    $prix = $_POST['prix'];
 
                     $total = $qte * $prix;
                     
@@ -192,7 +209,7 @@ form{
                     else
                     {
                         //Failed to Update order
-                    $_SESSION['update_order'] = '<p style="   background-color: #edd4d4;
+                    $_SESSION['update_order_error'] = '<p style="   background-color: #edd4d4;
                                             color: black;
                                             padding: 10px;
                                             margin-top: 1cm;
@@ -203,10 +220,9 @@ form{
                                             >Les données n\'ont pas été modifiées !</p>';
                         //redirect page to manage admin!
                         header("location:".SITEURL.'admin/update-order.php');
-                        exit();
                     }
                 }
-            ?>
+?>
 
         </div>
 </div>
