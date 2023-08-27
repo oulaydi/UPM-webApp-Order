@@ -103,16 +103,16 @@
             <legend>Détails de livraison</legend>
             <div class="order-label">Nom et Prenom</div>
             <input
-              type="text" name="nom_prenom_client" placeholder="Oulaydi Hajita" class="input-responsive" required />
+              type="text" name="nom_prenom_client" placeholder="Oulaydi Hajita"  class="input-responsive" autocomplete="off" required />
             
               <div class="order-label">Numero tele</div>
-            <input type="tel" name="tele" placeholder="+212612345678" class="input-responsive" required />
+            <input type="tel" name="tele" placeholder="+212612345678" class="input-responsive" autocomplete="off" required />
 
               <div class="order-label">Email</div>
-              <input type="email" name="email_client" placeholder="text.exemple@email.com" class="input-responsive" required />
+              <input type="email" name="email_client" placeholder="text.exemple@email.com" class="input-responsive" autocomplete="off" required />
 
             <div class="order-label">Adresse</div>
-            <textarea name="addresse" rows="10" placeholder="Rue, résidence, appartement, N°" class="input-responsive" required ></textarea>
+            <textarea name="addresse" rows="10" placeholder="Rue, résidence, appartement, N°" class="input-responsive" autocomplete="off" required ></textarea>
             <input
               type="submit" name="submit" value="Confirmer la commande" class="btn btn-primary"
             />
