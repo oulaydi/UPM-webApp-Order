@@ -57,7 +57,7 @@
         </form>
         <div class="two-col">
             <div class="two">
-                <label><a href="#">Besoin d'aide !</a></label>
+                <label><a href="www.google.com">Besoin d'aide !</a></label>
             </div>
         </div>
     </div>
