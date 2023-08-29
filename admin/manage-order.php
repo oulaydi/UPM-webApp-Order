@@ -68,22 +68,27 @@
                     echo $_SESSION['update_order'];
                     unset($_SESSION['update_order']);
                 }
+                if(isset($_SESSION['delete_order'])) {
+                    echo $_SESSION['delete_order'];
+                    unset($_SESSION['delete_order']);
+                }
 ?>
 
   <br><br>
 
         <table>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Prix</th>
-                <th>Quantité</th>
-                <th>Total</th>
-                <th>Date de commande</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-
+        <thead>
+                      <tr>
+                        <th scope="col">#Id_cmd</th>
+                        <th scope="col">Titre</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Date de commande</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
                 <?php
                 
                     // get all data from the db
@@ -118,11 +123,41 @@
                                     <td style="text-align: center;"><?php echo $qte; ?></td>
                                     <td ><?php echo $total .'dh'; ?></td>
                                     <td ><?php echo $order_date; ?></td>
-                                    <td style="color: red; font-weight: bold;"><?php echo $status; ?></td>
+                                    <td >
+                                      <?php 
+                                        if($status == "Commandé")
+                                        {
+                                          echo "<p style='color: grey; font-weight: bold;'>$status</p>";
+                                        }
+
+                                        elseif($status == "À la livraison")
+                                        {
+                                          echo "<p style='color: blue; font-weight: bold;'>$status</p>";
+                                        }
+
+                                        elseif($status == "Livré")
+                                        {
+                                          echo "<p style='color: green; font-weight: bold;'>$status</p>";
+                                        }
+                                        
+                                        else
+                                        {
+                                          echo "<p style='color: red; font-weight: bold;'>$status</p>";
+                                        }
+                                      ?>
+                                    </td>
                                     <td class="inline-buttons">
                                         <a href="<?php echo SITEURL; ?>admin/update-order.php?id_order=<?php echo $id; ?>" class="st-btn">Mettre à jour</a>
-                                        <a href="<?php SITEURL; ?>more-info.php" class="show-btn" title="Afficher plus d'informations"><i class="uil uil-eye"></i></a>
-                                        <a href="#" class="nd-btn" title="Supprimer">X</a>
+
+                                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+                                        <button  href="<?php SITEURL; ?>more-info.php" type="button" class="btn btn-primary" titre="Plus d'informations" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="uil uil-eye"></i>
+                                        </button>
+
+                                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+                                        <a href="<?php echo SITEURL; ?>admin/remove-order.php?id_order=<?php echo $id; ?>" class="nd-btn" title="Supprimer">X</a>
                                     </td>
                                 </tr>
 
@@ -137,6 +172,81 @@
 
                 ?>            
         </table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Informations personnelles</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              <table class="table">
+                  <thead>
+                      <tr>
+                        <th scope="col">#Id_client</th>
+                        <th scope="col">Nom et prénom</th>
+                        <th scope="col">Tele</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Addresse</th>
+                      </tr>
+                    </thead>
+
+                      <?php
+                      
+                          // get all data from the db
+                          $sql = "SELECT * FROM table_client";
+
+                          // execute the Query
+                          $result = mysqli_query($cnx, $sql);
+
+                          // check if there's a rows or not
+                          $count = mysqli_num_rows($result);
+
+                          if($count > 0)
+                          {
+                              // kayna Data
+                              while($row = mysqli_fetch_assoc($result))
+                              {
+                                  // get all data from db
+                                  $id = $row['id_client'];
+                                  $nom_prenom_client = $row['nom_prenom_client'];
+                                  $tele = $row['tele'];
+                                  $email_client = $row['email_client'];
+                                  $addresse = $row['addresse'];
+
+                                  ?>
+                                      <tbody>
+                                          <tr>
+                                            <th scope="row"><?php echo 'client-N°-'.$id; ?></th>
+                                            <td><?php echo $nom_prenom_client; ?></td>
+                                            <td><?php echo $tele; ?></td>
+                                            <td><?php echo $email_client; ?></td>
+                                            <td><?php echo $addresse; ?></td>
+                                          </tr>
+                                        </tbody>
+                                  <?php
+
+                              }
+                          }
+                          else
+                          {
+                              // No data
+                              echo '<p style="color: red; font-weight: bold; display: inline-block;" >il n\'y a pas de commandes!</p>';
+                          }
+
+                      ?>                  
+              </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
     <!-- social Section Starts Here -->
    <?php include('partials/footer.php');  ?>

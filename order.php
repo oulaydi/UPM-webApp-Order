@@ -93,6 +93,7 @@
                 type="number"
                 name="qte"
                 class="input-responsive"
+                min="1"
                 value="1"
                 required
               />
