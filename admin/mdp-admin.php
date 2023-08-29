@@ -70,9 +70,11 @@ form{
             <br><br>
             
             <?php
-                if(isset($_GET['id'])){
-                    $id = $_GET['id'];
-                }
+                 $id = 0; // Define a default value for $id
+                 if(isset($_GET['id'])){
+                     $id = $_GET['id'];
+                 }
+                 
                 if(isset($_SESSION['no_user'])){
                     echo $_SESSION['no_user'];
                     unset($_SESSION['no_user']);

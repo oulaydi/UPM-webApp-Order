@@ -16,9 +16,16 @@
             <h1>TABLEAU DE BORD</h1>
 
             <div class="col-5">
-                <h1>5</h1>
+
+            <?php   
+                $sql = "SELECT * FROM table_admin";
+                $result = mysqli_query($cnx, $sql);
+                $count = mysqli_num_rows($result);
+            ?>
+
+                <h1><?php echo $count; ?></h1>
                 <br/>
-                Catégories
+                Admin
             </div>
             <div class="col-5">
                 <h1>5</h1>
@@ -26,19 +33,35 @@
                 Catégories
             </div>
             <div class="col-5">
-                <h1>5</h1>
+            <?php   
+                $sql1 = "SELECT * FROM table_food";
+                $result1 = mysqli_query($cnx, $sql1);
+                $count1 = mysqli_num_rows($result1);
+            ?>
+                <h1><?php echo $count1; ?></h1>
                 <br/>
-                Catégories
+                Repas
             </div>
             <div class="col-5">
-                <h1>5</h1>
+            <?php   
+                $sql2 = "SELECT * FROM table_admin";
+                $result2 = mysqli_query($cnx, $sql2);
+                $count2 = mysqli_num_rows($result2);
+            ?>
+                <h1><?php echo $count2; ?></h1>
                 <br/>
-                Catégories
+                Total Commands
             </div>
             <div class="col-5">
-                <h1>5</h1>
+            <?php   
+                $sql3 = "SELECT SUM(total) AS Total from table_order WHERE status='Livré'";
+                $result3 = mysqli_query($cnx, $sql3);
+                $row = mysqli_fetch_assoc($result3);
+                $total_revenue = $row['Total'];
+            ?>
+                <h1><?php echo $total_revenue .'dh'; ?></h1>
                 <br/>
-                Catégories
+                Revenus
             </div>
             <div class="fix"></div>
         </div>
