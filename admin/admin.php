@@ -15,6 +15,8 @@
 
             <h1>TABLEAU DE BORD</h1>
 
+            <br><br><br>
+
             <div class="col-5">
 
             <?php   
@@ -23,12 +25,12 @@
                 $count = mysqli_num_rows($result);
             ?>
 
-                <h1><?php echo $count; ?></h1>
+                <h2><?php echo $count; ?></h2>
                 <br/>
                 Admin
             </div>
             <div class="col-5">
-                <h1>5</h1>
+                <h2>5</h2>
                 <br/>
                 Catégories
             </div>
@@ -38,7 +40,7 @@
                 $result1 = mysqli_query($cnx, $sql1);
                 $count1 = mysqli_num_rows($result1);
             ?>
-                <h1><?php echo $count1; ?></h1>
+                <h2><?php echo $count1; ?></h2>
                 <br/>
                 Repas
             </div>
@@ -48,7 +50,7 @@
                 $result2 = mysqli_query($cnx, $sql2);
                 $count2 = mysqli_num_rows($result2);
             ?>
-                <h1><?php echo $count2; ?></h1>
+                <h2><?php echo $count2; ?></h2>
                 <br/>
                 Total Commands
             </div>
@@ -59,7 +61,7 @@
                 $row = mysqli_fetch_assoc($result3);
                 $total_revenue = $row['Total'];
             ?>
-                <h1><?php echo $total_revenue .'dh'; ?></h1>
+                <h2><?php echo $total_revenue .'dh'; ?></h2>
                 <br/>
                 Revenus
             </div>
