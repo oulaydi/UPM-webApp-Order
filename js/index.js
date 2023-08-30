@@ -17,3 +17,34 @@ if (alertTrigger) {
     appendAlert('Nice, you triggered this alert message!', 'success')
   })
 }
+
+
+/* EmailJS */
+function sendMail()
+{
+  var info = {
+      full_name: document.getElementById("full_name").value,
+      email: document.getElementById("email").value,
+      tele: document.getElementById("tele").value,
+      message: document.getElementById("message").value
+  };
+
+  const serviceID = "service_neca54h";
+  const template = "template_kwxqqwf"
+
+emailjs.send(serviceID, template, info)
+.then(
+  res => {
+    document.getElementById("full_name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("tele").value = "";
+    document.getElementById("message").value = "";
+
+    console.log(res);
+
+    alert("Votre message a été envoyé avec succès");
+  })
+  .catch(err => console.log(err));
+  ;
+
+}
