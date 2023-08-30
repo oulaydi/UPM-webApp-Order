@@ -46,7 +46,7 @@
             </div>
             <div class="col-5">
             <?php   
-                $sql2 = "SELECT * FROM table_admin";
+                $sql2 = "SELECT * FROM table_order";
                 $result2 = mysqli_query($cnx, $sql2);
                 $count2 = mysqli_num_rows($result2);
             ?>
