@@ -7,6 +7,17 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
     <link rel="icon" href="images/small_logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+	<script src="js/index.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+	<script type="text/javascript">
+	(function()
+	{
+		emailjs.init("QkV6GNfZmNoCyyynL");
+	}
+	)();
+	</script>
+
     <style>
         *{
 	padding: 0;
@@ -131,7 +142,6 @@ textarea{
 }
     </style>
 </head>
-<body>
 	<section class="navbar">
         <div class="container">
             <div class="logo">
@@ -147,11 +157,11 @@ textarea{
 			<div class="left"></div>
 			<div class="right">
 				<h2>Contactez-nous</h2>
-				<input type="text" class="field" required placeholder="Nom & Prenom">
-				<input type="text" class="field" required placeholder="Email">
-				<input type="text" class="field" required placeholder="Tele">
-				<textarea placeholder="Message" class="field"></textarea>
-				<button class="btn">Envoyer</button>
+				<input type="text" autocomplete="off" id="full_name" class="field" required placeholder="Nom & Prenom">
+				<input type="text" autocomplete="off" id="email" class="field" required placeholder="Email">
+				<input type="text" autocomplete="off" id="tele" class="field" required placeholder="Tele">
+				<textarea placeholder="Message" autocomplete="off" id="message" class="field"></textarea>
+				<button class="btn" onclick="sendMail()">Envoyer</button>
 			</div>
 		</div>
 	</div>
